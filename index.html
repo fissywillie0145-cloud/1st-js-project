@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="clock" id="clock">
+        <div class="number n1">1</div>
+        <div class="number n2">2</div>
+        <div class="number n3">3</div>
+        <div class="number n4">4</div>
+        <div class="number n5">5</div>
+        <div class="number n6">6</div>
+        <div class="number n7">7</div>
+        <div class="number n8">8</div>
+        <div class="number n9">9</div>
+        <div class="number n10">10</div>
+        <div class="number n11">11</div>
+        <div class="number n12">12</div>
+        <div class="hand hour-hand" id="hourHand"></div>
+        <div class="hand minute-hand" id="minuteHand"></div>
+        <div class="hand second-hand" id="secondHand"></div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const h = (now.getHours() % 12) * 30 +
+                now.getMinutes() * 0.5;
+            const m = now.getMinutes() * 6;
+            const s = now.getSeconds() * 6;
+
+            document.getElementById('hourHand').style
+                .transform = `rotate(${h}deg)`;
+            document.getElementById('minuteHand').style
+                .transform = `rotate(${m}deg)`;
+            document.getElementById('secondHand').style
+                .transform = `rotate(${s}deg)`;
+        }
+
+        updateClock()
+        setInterval(updateClock, 1000);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
